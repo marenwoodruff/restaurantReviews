@@ -5,6 +5,7 @@
 <table class="table table-hover">
   <thead class="thead-dark">
     <tr>
+      <th scope="col">Image</th>
       <th scope="col">Name</th>
       <th scope="col">Address</th>
       <th scope="col">Phone</th>
@@ -18,6 +19,7 @@
   <tbody>
     <% @restaurants.each do |restaurant| %>
       <tr>
+        <td class="align-self-center"><%= image_tag restaurant.image_url, height: '40', width: '50' %></td>
         <td class="align-self-center"><%= restaurant.name %></td>
         <td class="align-self-center"><%= restaurant.address %></td>
         <td class="align-self-center"><%= restaurant.phone %></td>
