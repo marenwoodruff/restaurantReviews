@@ -22,9 +22,9 @@
         <td class="align-self-center"><%= restaurant.address %></td>
         <td class="align-self-center"><%= restaurant.phone %></td>
         <td class="align-self-center"><%= restaurant.website %></td>
-        <td><%= link_to 'Show', restaurant, class: "btn btn-link" %></td>
-        <td><%= link_to 'Edit', edit_restaurant_path(restaurant), class: "btn btn-link" %></td>
-        <td><%= link_to 'Destroy', restaurant, method: :delete, data: { confirm: 'Are you sure?' }, class: "btn btn-link" %></td>
+        <td><%= link_to 'Show', restaurant, class: "btn btn-link link" %></td>
+        <td><%= link_to 'Edit', edit_restaurant_path(restaurant), class: "btn btn-link link" %></td>
+        <td><%= link_to 'Destroy', restaurant, method: :delete, data: { confirm: 'Are you sure?' }, class: "btn btn-link link" %></td>
       </tr>
     <% end %>
   </tbody>
