@@ -1,8 +1,11 @@
 <ul class="nav nav-tabs">
   <li class="nav-item">
-    <a class="nav-link" href="/pages/about">About</a>
+    <%= link_to 'Home', restaurants_path, class: "btn btn-dark" %>
   </li>
   <li class="nav-item">
-    <a class="nav-link" href="/pages/contact">Contact</a>
+    <%= link_to 'About', pages_about_path, class: "btn btn-dark" %>
+  </li>
+  <li class="nav-item">
+    <%= link_to 'Contact', pages_contact_path, class: "btn btn-dark" %>
   </li>
 </ul>
