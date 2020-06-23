@@ -11,8 +11,10 @@
   </head>
 
   <body>
+    <%= render 'layouts/navbar' %>
     <div class="container d-flex flex-column align-items-start">
-      <%= render 'layouts/navbar' %>
+      <p class="notice"><%= notice %></p>
+      <p class="alert"><%= alert %></p>
       <%= yield %>
       <%= render 'layouts/footer', class: "align-self-end" %>
     </div>
