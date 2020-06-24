@@ -1,11 +1,30 @@
-<ul class="nav nav-tabs">
-  <li class="nav-item">
-    <%= link_to 'Home', restaurants_path, class: "btn btn-link" %>
-  </li>
-  <li class="nav-item">
-    <%= link_to 'About', pages_about_path, class: "btn btn-link" %>
-  </li>
-  <li class="nav-item">
-    <%= link_to 'Contact', pages_contact_path, class: "btn btn-link" %>
-  </li>
-</ul>
+<div class="navbar">
+  <ul class="nav nav-tabs">
+    <li class="nav-item">
+      <%= link_to 'Home', root_path, class: "btn btn-link" %>
+    </li>
+    <li class="nav-item">
+      <%= link_to 'About', pages_about_path, class: "btn btn-link" %>
+    </li>
+    <li class="nav-item">
+      <%= link_to 'Contact', pages_contact_path, class: "btn btn-link" %>
+    </li>
+  </ul>
+  <ul class="nav nav-tabs">
+    <% if user_signed_in? %>
+      <li class="nav-item">
+        <%= link_to "Edit Profile", edit_user_registration_path, class: "btn btn-link" %>
+      </li>
+      <li class="nav-item">
+        <%= link_to "Sign out", destroy_user_session_path, method: :delete, class: "btn btn-link" %>
+      </li>
+    <% else %>
+      <li class="nav-item">
+        <%= link_to "Sign up", new_user_registration_path, class: "btn btn-link" %>
+      </li>
+      <li class="nav-item">
+        <%= link_to "Log in", new_user_session_path, class: "btn btn-link" %>
+      </li>
+    <% end %>
+  </ul>
+</div>

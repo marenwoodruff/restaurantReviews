@@ -1,6 +1,6 @@
 <h1>Restaurants</h1>
 
-<table class="table table-hover">
+<table class="table">
   <thead class="thead-dark">
     <tr>
       <th scope="col">Image</th>
@@ -21,7 +21,7 @@
         <td class="align-self-center"><%= restaurant.name %></td>
         <td class="align-self-center"><%= restaurant.address %></td>
         <td class="align-self-center"><%= restaurant.phone %></td>
-        <td class="align-self-center"><%= restaurant.website %></td>
+        <td class="align-self-center"><%= link_to restaurant.website, restaurant.website, target: '_blank', rel: 'noopener' %></td>
         <td><%= link_to 'Show', restaurant, class: "btn btn-link link" %></td>
         <td><%= link_to 'Edit', edit_restaurant_path(restaurant), class: "btn btn-link link" %></td>
         <td><%= link_to 'Destroy', restaurant, method: :delete, data: { confirm: 'Are you sure?' }, class: "btn btn-link link" %></td>
