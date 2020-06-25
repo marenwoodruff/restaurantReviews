@@ -1,13 +1,15 @@
 <%= form_with(model: restaurant, local: true, html: { class: 'form' }) do |form| %>
   <% if restaurant.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(restaurant.errors.count, "error") %> prohibited this restaurant from being saved:</h2>
-
-      <ul>
-        <% restaurant.errors.full_messages.each do |message| %>
-          <li><%= message %></li>
-        <% end %>
-      </ul>
+    <div class="alert alert-danger alert-dismissable">
+      <button type="button" class="close" data-dismiss="alert"><span aria-hidden="true">&times;</span>
+        <span class="sr-only">Close</span>
+      </button>
+      <h4>
+        <%= pluralize(restaurant.errors.count, "error") %> prohibited this restaurant from being saved:
+      </h4>
+      <% restaurant.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
     </div>
   <% end %>
 
@@ -23,17 +25,17 @@
 
   <div class="form-group">
     <%= form.label :address %>
-    <%= form.text_field :address, class: "form-control" %>
+    <%= form.text_field :address, class: "form-control", placeholder: "400 Valencia St, San Francisco, CA 94103" %>
   </div>
 
   <div class="form-group">
     <%= form.label :phone %>
-    <%= form.text_field :phone, class: "form-control" %>
+    <%= form.text_field :phone, class: "form-control", placeholder: "(415) 551-7827" %>
   </div>
 
   <div class="form-group">
     <%= form.label :website %>
-    <%= form.text_field :website, class: "form-control" %>
+    <%= form.text_field :website, class: "form-control", placeholder: "https://www.littlestarvalencia.com/" %>
   </div>
 
   <div class="actions">
