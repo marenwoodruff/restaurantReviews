@@ -8,9 +8,11 @@
       <th scope="col">Address</th>
       <th scope="col">Phone</th>
       <th scope="col">Website</th>
-      <th scope="col"></th>
-      <th scope="col"></th>
-      <th scope="col"></th>
+      <% if user_signed_in? && current_user.admin? %>
+        <th scope="col"></th>
+        <th scope="col"></th>
+        <th scope="col"></th>
+      <% end %>
     </tr>
   </thead>
 
@@ -22,11 +24,15 @@
         <td class="align-self-center"><%= restaurant.address %></td>
         <td class="align-self-center"><%= restaurant.phone %></td>
         <td class="align-self-center"><%= link_to restaurant.website, restaurant.website, target: '_blank', rel: 'noopener' %></td>
-        <td><%= link_to 'Edit', edit_restaurant_path(restaurant), class: "btn btn-link link" %></td>
-        <td><%= link_to 'Destroy', restaurant, method: :delete, data: { confirm: 'Are you sure?' }, class: "btn btn-link link" %></td>
+        <% if user_signed_in? && current_user.admin? %>
+          <td><%= link_to 'Edit', edit_restaurant_path(restaurant), class: "btn btn-link link" %></td>
+          <td><%= link_to 'Destroy', restaurant, method: :delete, data: { confirm: 'Are you sure?' }, class: "btn btn-link link" %></td>
+        <% end %>
       </tr>
     <% end %>
   </tbody>
 </table>
 
-<%= link_to 'New Restaurant', new_restaurant_path, class: "btn btn-raised btn-outline-dark button-margin" %>
+<% if user_signed_in? && current_user.admin? %>
+  <%= link_to 'New Restaurant', new_restaurant_path, class: "btn btn-raised btn-outline-dark button-margin" %>
+<% end %>
