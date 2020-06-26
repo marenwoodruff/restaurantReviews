@@ -64,6 +64,12 @@ class ReviewsController < ApplicationController
       @restaurant = Restaurant.find(params[:restaurant_id])
     end
 
+    def check_user
+      unless (@review.user == current_user) || (current_user.admin?)
+        redirect_to root_url, alert: "Sorry, this review belongs to someone else"
+      end
+    end
+
     # Only allow a list of trusted parameters through.
     def review_params
       params.require(:review).permit(:rating, :comment)
